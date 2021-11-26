@@ -16,9 +16,9 @@ const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
   
-    const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
-    return (
+  return (
     <Drawer.Navigator
       drawerType={ width >= 768 ? 'permanent' : 'front' }
       drawerContent={ (props) => <MenuInterno { ...props } /> }
