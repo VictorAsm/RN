@@ -1,13 +1,11 @@
-import { DefaultTheme, DarkTheme, NavigationContainer, Theme } from '@react-navigation/native';
-
 import React from 'react'
-import { Text, View } from 'react-native';
+import { ThemeProvider } from './src/context/themeContext/ThemeContext';
 import Navigator from './src/navigation/Navigator';
 
-const customTheme: Theme = {
+/* const customTheme: Theme = {
   dark: true,
   colors: {
-      ...DarkTheme.colors,
+      ...DefaultTheme.colors,
       //background: 'black',
       //primary: string;
       //background: string;
@@ -17,15 +15,22 @@ const customTheme: Theme = {
       //notification: string;
   }
 }
-
+ */
 const App = () => {
   return (
-    <NavigationContainer
-      theme={ customTheme }
-    >
-      <Navigator />
-    </NavigationContainer>
+    <AppState>
+        <Navigator />
+    </AppState>
   )
+}
+
+const AppState = ({children} : any) => {
+    return (
+      <ThemeProvider>
+        {children}
+      </ThemeProvider>
+    )
+
 }
 
 export default App;
